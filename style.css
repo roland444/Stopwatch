@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    background-color: aquamarine;
+    width: 500px;
+    height: 350px;
+    margin: 15vh auto;
+    padding-top: 25px;
+}
+
+.stopwatch {
+    margin: auto;
+    width: 95%;
+    height: 125px;
+    background-color: pink;
+}
+
+.btn {
+    display: inline-block;
+    background-color: white;
+    width: 50px;
+    height: 25px;
+    margin: 10px 25px auto 25px;
+    padding: 25px;
+}
+
