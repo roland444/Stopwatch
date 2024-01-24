@@ -3,32 +3,42 @@ const _startBtn = document.getElementsByClassName("start");
 const _stopBtn = document.getElementsByClassName("stop");
 const _resetBtn = document.getElementsByClassName("reset");
 
-window.onload = () => {
-    let milliseconds = 0;
-    let seconds = 0;
-    let minutes = 0;
-    let hours = 0;
+let milliseconds = 0;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 
-    let startTime = 0;
-    let elapsedTime = 0;
-    let interval;
+let elapsedTime = 0;
+let startTime = 0;
+let interval;
 
-    _startBtn[0].addEventListener("click", startStopwatch);
 
-    updateStopwatch();
-}
-
-const startStopwatch = (startTime, elapsedTime, interval) => {
+const startStopwatch = () => {
     if (!interval) {
         startTime = Date.now() - elapsedTime;
-        interval = setInterval(updateStopwatch, 1000);
-    }     
+        interval = setInterval(updateStopwatch, 1000);  
+    }
 }
 
 const updateStopwatch = () => {
     const _timer = document.querySelector("#timer");
 
+    elapsedTime = Date.now() - startTime;
+
+    
+    seconds = Math.floor((elapsedTime / 1000) % 60);
+    minutes = Math.floor((elapsedTime / 1000 / 60) % 60);
+    hours = Math.floor(elapsedTime / 1000 / 60 / 60);
+
+    console.log(hours, minutes, seconds, milliseconds)
+
 }
+
+_startBtn[0].addEventListener("click", startStopwatch);
+
+// const pad = () => {
+
+// }
 
 
 
