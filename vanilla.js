@@ -25,20 +25,23 @@ const updateStopwatch = () => {
 
     elapsedTime = Date.now() - startTime;
 
-    
     seconds = Math.floor((elapsedTime / 1000) % 60);
     minutes = Math.floor((elapsedTime / 1000 / 60) % 60);
     hours = Math.floor(elapsedTime / 1000 / 60 / 60);
 
-    console.log(hours, minutes, seconds, milliseconds)
+    _timer.innerText = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+
+}
+
+const stopStopwatch = () => {
 
 }
 
 _startBtn[0].addEventListener("click", startStopwatch);
 
-// const pad = () => {
-
-// }
+const pad = (num) => {
+    return (num < 10 ? "0" : "") + num;
+}
 
 
 
