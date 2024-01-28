@@ -2,6 +2,7 @@ const _buttons = document.getElementsByClassName("buttons");
 const _stopwatch = document.getElementsByClassName("stopwach");
 const _startBtn = document.getElementsByClassName("start")[0];
 const _resetBtn = document.getElementsByClassName("reset")[0];
+const _timer = document.querySelector("#timer");
 
 //let milliseconds = 0;
 let seconds = 0;
@@ -28,8 +29,6 @@ const startStopwatch = () => {
 }
 
 const updateStopwatch = () => {
-    const _timer = document.querySelector("#timer");
-
     elapsedTime = Date.now() - startTime;
 
     seconds = Math.floor((elapsedTime / 1000) % 60);
@@ -51,12 +50,14 @@ const stopStopwatch = () => {
 const resetStopwatch = () => {
     stopStopwatch();
     elapsedTime = 0;
-    _stopwatch.innerHTML = "00:00:00";
+    _timer.innerText = "00:00:00";
 }
 
 _startBtn.addEventListener("click", startStopwatch);
 
 stopBtnDiv.addEventListener("click", stopStopwatch);
+
+_resetBtn.addEventListener("click", resetStopwatch);
 
 const pad = (num) => {
     return (num < 10 ? "0" : "") + num;
